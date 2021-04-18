@@ -1,7 +1,7 @@
 # website_constructor_2020
 
-Website Block builder where you can create your own blocks with unique styling by specifying it in text fields
+Website Constructor is a web application for creating different website layouts. You can add text/image/column elements to your layout and customize it depending on input CSS properties
 
 URL to view live example: https://website-constructor-d1ba2.web.app/
 
-NOTE: ex. value: Any Text, styles: background-color: black; color: green;
+NOTE: input fields are specifically designed for those with knowledge of CSS styling. (Ex. value: Any Text, styles: background-color: black; color: green;)
