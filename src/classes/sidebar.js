@@ -28,11 +28,20 @@ export class Sidebar {
 
     const el = event.target;
 
-    const value =
-        [...el.value].length > 1
-          ? [...el.value].map((inputColumnEl) => inputColumnEl.value)
-          : el.value.value,
-      styles = el.styles.value;
+    let value;
+
+    const styles = el.styles.value;
+    el.styles.value = '';
+
+    if (NodeList.prototype.isPrototypeOf(el.value)) {
+      const iteratableArr = [...el.value];
+
+      value = iteratableArr.map((inputColumnEl) => inputColumnEl.value);
+      iteratableArr.map((inputField) => (inputField.value = ''));
+    } else {
+      value = el.value.value;
+      el.value.value = '';
+    }
 
     const blocks = new Map([
       ['text', TextBlock],
@@ -42,13 +51,7 @@ export class Sidebar {
     ]);
 
     const Constructor = blocks.get(el.name);
-
     const newBlock = new Constructor(value, { styles });
     this.update(newBlock);
-
-    [...el.value].length > 1
-      ? [...el.value].map((inputField) => (inputField.value = ''))
-      : (el.value.value = '');
-    el.styles.value = '';
   }
 }
