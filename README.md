@@ -1,4 +1,4 @@
-# website_constructor_2020
+# More Detailed Information
 
 Website Constructor is a web application for creating different website layouts. You can add text/image/column elements to your layout and customize it depending on input CSS properties
 
